@@ -25,7 +25,10 @@ SECRET_KEY = '+m(&(qz$6e+4ht!ao&-5&c*c!$pg=53ngdw=psw#++$_55rlt#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# This setting is changed by the deploy script
+DOMAIN = "localhost"
+
+ALLOWED_HOSTS = [DOMAIN]
 
 AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = (
