@@ -10,9 +10,9 @@ def _get_manage_dot_py(host):
     
     
     
- def reset_database():
+def reset_database():
     run('{manage_py} flush --noinput'.format(
-        manage.py=_get_manage_dot_py(env.host)
+        manage_py=_get_manage_dot_py(env.host)
     ))
     
     

@@ -25,7 +25,7 @@ class FunctionalTest(StaticLiveServerTestCase):
     
     def setUp(self): 
         if self.against_staging:
-            reser_database(self.server_host)
+            reset_database(self.server_host)
         self.browser = webdriver.Firefox() #Chrome('C:/Users/USER PC/Downloads/chromedriver_win32/chromedriver') #Firefox()
         self.browser.implicitly_wait(3)
 
