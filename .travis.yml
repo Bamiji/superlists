@@ -1,9 +1,0 @@
-language: python
-python:
-  - "3.3"
-install: 
-  - pip install django==1.8
-  - pip install requests
-  - pip install wheel
-  - pip install gunicorn==18.0
-script: python3 manage.py functional_tests

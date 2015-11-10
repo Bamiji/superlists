@@ -8,15 +8,12 @@ class List(models.Model):
     def get_absolute_url(self):
         return reverse('view_list', args=[self.id])
         
-<<<<<<< HEAD
     @staticmethod
     def create_new(first_item_text, owner=None):
         list_ = List.objects.create(owner=owner)
         Item.objects.create(text=first_item_text, list=list_)
         return list_
     
-=======
->>>>>>> 9ae3dc6ed7a103727e5453a7be6490491a53fac3
     @property
     def name(self):
         return self.item_set.first().text
