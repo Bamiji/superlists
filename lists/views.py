@@ -22,7 +22,11 @@ def view_list(request, list_id):
 def new_list(request):
     form = NewListForm(data=request.POST)
     if form.is_valid():
+<<<<<<< HEAD
         list_ = form.save(owner=request.user)
+=======
+        list_ = List()
+>>>>>>> 9ae3dc6ed7a103727e5453a7be6490491a53fac3
         if request.user.is_authenticated():
             list_.owner = request.user
         list_.save()
