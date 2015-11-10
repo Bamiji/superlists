@@ -1,0 +1,5 @@
+language: python
+python:
+  - "3.3"
+install: "pip install requirements.txt"
+script: python3 manage.py functional_tests
