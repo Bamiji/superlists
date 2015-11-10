@@ -23,7 +23,7 @@ def new_list(request):
     form = NewListForm(data=request.POST)
     if form.is_valid():
         list_ = form.save(owner=request.user)
-        list_ = List()
+        #list_ = List()
         if request.user.is_authenticated():
             list_.owner = request.user
         list_.save()

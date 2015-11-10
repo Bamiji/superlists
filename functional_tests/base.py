@@ -1,11 +1,14 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
-import sys
+import sys, time
 from .server_tools import reset_database
 from .server_tools import create_session_on_server
 from .management.commands.create_session import create_pre_authenticated_session
 from django.conf import settings
+from selenium.common.exceptions import WebDriverException
+DEFAULT_WAIT = 15
+
 
 class FunctionalTest(StaticLiveServerTestCase):
 
@@ -75,3 +78,13 @@ class FunctionalTest(StaticLiveServerTestCase):
             value=session_key,
             path='/',
         ))
+        
+    def wait_for(self, function_with_assertion, timeout=DEFAULT_WAIT):
+        start_time = time.time()
+        while time.time() - start_time < timeout:
+            try:
+                return function_with_assertion()
+            except (AssertionError, WebDriverException):
+                time.sleep(0.1)
+        # one more try, which will raise any errors if they are outstanding
+        return function_with_assertion()
